@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>网站</title>
+    <style>
+        body {
+            height: 100%;
+            background: url("imags/bg.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        #top {
+            width: 375px;
+            height: 60px;
+            margin: 0px auto;
+        }
+
+            #top a {
+                padding: 17px;
+                line-height: 23px;
+                color: white;
+                float: left
+            }
+
+        #love {
+            width: 34.5px;
+            height: 35px;
+            border: 2px solid blue;
+            position: relative;
+        }
+
+            #love div {
+                position: absolute;
+                left: 2px;
+                width: 20px;
+                height: 32px;
+                background: red;
+                border-radius: 10px 10px 0 0;
+            }
+
+        .left {
+            transform: rotate(-45deg);
+        }
+
+        #love .right {
+            left: 10px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="top">
+        <a href="如意网站.aspx">主页</a>
+        <a href="HTMLPage2.html" target="_blank">音乐</a>
+        <a href="HTMLPage3.html" target="_blank">电影</a>
+        <a href="HTMLPage3.html" target="_blank">动漫</a>
+        <a href="HTMLPage2.html" target="_blank">小说</a>
+    </div><br />
+    <div id="Body">
+        <div><a href="https://www.baidu.com/">百度</a></div><br />
+        <div><a href="https://www.google.cn/">谷歌</a></div><br />
+        <div><a href="https://cn.bing.com/">必应</a></div><br />
+        <div><a href="https://www.sogou.com/">搜狗</a></div><br />
+    </div><br />
+    <div id="love">
+        <div class="left"></div>
+        <div class="right"></div><br />
+    </div><br />
+
+
+</body>
+</html>

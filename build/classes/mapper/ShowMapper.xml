@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ShowDao">
+
+ <!-- 目的：为dao接口方法提供sql语句配置 -->
+
+ <select id="queryTextFileBychapter" resultType="String" >
+
+ <!-- 输出内容-->
+
+ SELECT
+
+ textFile
+
+ FROM
+
+ sbook
+
+ WHERE
+
+ chapter = #{chapter}
+
+ </select>
+ <!-- 根据书名输出章节 -->
+ <select id="queryByBookName" resultType="Chapter" parameterType="Show">
+
+ <!-- 输出章节 -->
+
+ SELECT
+
+ chapter
+
+ FROM
+
+ sbook
+
+ WHERE
+
+ bookname = #{bookname}
+
+ </select>
+ 
+ <!-- 输出所有小说书名 -->
+  <select id="queryBookNames" resultType="BookNames" parameterType="Show">
+	 SELECT
+		
+	 bookname
+	
+	 FROM
+	
+	 sbook
+	 group by bookname
+	  
+	
+ 
+ </select>
+ 
+ <!-- <select id="queryBooks" resultType="Show" >
+	 SELECT
+		
+	 chapter,
+	
+	 textFile
+	
+	 FROM
+	
+	 sbook
+	
+	
+ 
+ </select>
+ 搜索全部章节和内容
+ -->
+ 
+
+ <select id="queryAll" resultType="Show" parameterType="Show">
+
+ SELECT
+
+ chapter
+
+ FROM
+
+ sbook
+
+
+ LIMIT #{offset}, #{limit}
+
+ </select>
+ <select  id="Number" resultType="int">
+ select count(*) from sbook;
+</select>
+ 
+ 
+  <insert id="insertBook" parameterType="Show" >
+    insert into sbook values(#{chapter},#{textFile})
+ </insert>
+
+</mapper>

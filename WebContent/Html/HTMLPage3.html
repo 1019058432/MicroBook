@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>动漫</title>
+    <style>
+        #Body div {
+            width: 730px;
+            height: 460px;
+            float: left;
+            padding: 0px;
+            position: relative;
+        }
+
+        #Body span {
+            position: absolute;
+            color: red;
+        }
+
+        #Body img {
+            width: 730px;
+            height: 460px;
+        }
+
+        #adv {
+            height: 800px;
+            width: 100%;
+            float: left;
+            position: relative;
+        }
+
+            #adv .img {
+                width: 100%;
+                height: 800px;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+
+            #adv ul.butm li {
+                width: 50px;
+                height: 10px;
+                float: left;
+                margin: 0 5px;
+                list-style-type: none;
+                color: hotpink;
+                border: 1px solid red;
+            }
+
+                #adv ul.butm li.hover {
+                    background: red;
+                }
+
+            #adv ul.butm {
+                position: relative;
+                left: 40%;
+                top: 750px;
+                display: inline-block;
+            }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+    <div id="Body">
+
+        <div><span>哔哩哔哩</span><a href="https://www.bilibili.com/" target=" _blank" ;><img src="imags/bili.jpg" alt="突然找不到网址了" /></a></div>
+        <div><span>AFunc</span><a href="https://www.acfun.cn/" target=" _blank" ;><img src="imags/AcFunc.jpg" alt="突然找不到网址了" /></a></div>
+    </div><br />
+    <!--流图-->
+    <div id="adv">
+        <div class="img" style="background:url('imags/imagss/t8.jpg') no-repeat center;height:800px;background-size:100%; "></div>
+        <div class="img" style="background:url('imags/imagss/t2.jpg')  center;height:800px"></div>
+        <div class="img" style="background:url('imags/imagss/t3.jpg')  center;height:800px"></div>
+        <div class="img" style="background:url('imags/imagss/t4.jpg') no-repeat center;height:800px  ;background-size:100%; "></div>
+        <div class="img" style="background:url('imags/imagss/t5.jpg')  no-repeat center;height:800px; background-size:100%;"></div>
+        <ul class="butm">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+
+        var timeplay=null;
+        var _index = 0;
+        $("#adv  .img").eq(_index).fadeIn().siblings("div").fadeOut();
+        $("#adv ul.butm  li").hover(function (){
+            _index = $(this).index();
+            clearInterval(timeplay);
+            $(this).addClass("hover").siblings().removeClass("hover");
+            $("#adv .img").eq(_index).fadeIn().siblings("div").fadeOut();
+        },
+            function () {
+                autoplay();
+            });
+        function autoplay() {
+            timeplay=  setInterval(
+                function () {
+                    _index++;
+                    if (_index < 5) {
+                        if (_index == 4) _index = -1;
+                        $("#adv ul.butm  li").eq(_index).addClass("hover").siblings().removeClass("hover");
+                        $("#adv .img").eq(_index).fadeIn().siblings("div").fadeOut();
+                    } else (_index=-1)
+                    }
+             , 2000);
+
+
+        };
+        autoplay();
+    </script>
+</body>
+</html>
